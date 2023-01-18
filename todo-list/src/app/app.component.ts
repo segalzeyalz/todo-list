@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Task } from './types'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todo-list';
+  currentTask: any = null;
+  tasks: Task[] = [];
+
+  addTask() {
+    this.tasks.push({text: this.currentTask, checked: false, index: this.tasks.length});
+    this.currentTask = '';
+  }
+  toggleCheck(task: Task) {
+    this.tasks[task.index].checked = !this.tasks[task.index].checked;
+  }
+  writeTask(eventTarget: any) {
+    this.currentTask = (eventTarget as HTMLInputElement).value;
+  }
 }
