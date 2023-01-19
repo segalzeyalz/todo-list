@@ -1,6 +1,6 @@
 <div class="header">
   <h2>My To Do List</h2>
-  <input [value]="currentTask" (change)="writeTask($event.target)" type="text" placeholder="enter your task here...">
+  <input [value]="currentTask" (keyup.enter)="addTask()" (change)="writeTask($event.target)" type="text" placeholder="enter your task here...">
   <span (click)="addTask()" class="addBtn">Add</span>
 </div>
 
