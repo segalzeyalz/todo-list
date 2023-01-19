@@ -33,7 +33,7 @@ client.connect((error) => {
       const allTasks = await tasks.find({}).toArray();
       response.status(200).json(allTasks);
     } catch (error) {
-      response.status(500).json({ error: error.message });
+      response.status(500).json({ error });
     }
   });
 
@@ -100,7 +100,7 @@ app.delete("/tasks/:id", async (request: Request, response: Response) => {
       }
       response.status(200).json({ message: "Task deleted" });
     } catch (error) {
-      response.status(500).json({ error: error.message });
+      response.status(500).json({ error});
     }
   });
 
